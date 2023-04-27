@@ -9,6 +9,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
@@ -45,8 +47,8 @@ public class UpdateCustomerDetailsController {
       })
   @PutMapping("/{customerId}")
   public ResponseEntity<CustomerDetails> updateCustomerDetails(
-      @PathVariable @NotEmpty String customerId,
-      @ParameterObject @RequestBody UpdateCustomerRequest customerRequest) {
+      @PathVariable @NotEmpty @NotBlank String customerId,
+      @ParameterObject @RequestBody  @Valid UpdateCustomerRequest customerRequest) {
     return ResponseEntity.ok(updateCustomerDetailsService.updateCustomerDetails(customerId,customerRequest));
   }
 

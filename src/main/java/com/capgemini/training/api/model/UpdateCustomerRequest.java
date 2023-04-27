@@ -4,12 +4,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Schema(description = "CustomerDetails")
 @Getter
 @SuperBuilder
+@Setter
 @EqualsAndHashCode()
 @NoArgsConstructor
 @ToString(callSuper = true)

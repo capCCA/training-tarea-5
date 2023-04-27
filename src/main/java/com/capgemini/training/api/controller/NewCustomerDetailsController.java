@@ -8,8 +8,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springdoc.api.annotations.ParameterObject;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,9 +42,10 @@ public class NewCustomerDetailsController {
                       schema = @Schema(implementation = CustomerDetails.class))
               })
       })
-  @PostMapping()
+  @PostMapping
   public ResponseEntity<CustomerDetails> createNewCustomerDetails(
-      @ParameterObject @RequestBody CustomerDetails customerDetails) {
-    return ResponseEntity.ok(newCustomerDetailsService.createNewCustomer(customerDetails));
+      @ParameterObject @RequestBody  @Valid CustomerDetails customerDetails) {
+    return new ResponseEntity<>(newCustomerDetailsService.createNewCustomer(customerDetails),
+        HttpStatus.CREATED);
   }
 }

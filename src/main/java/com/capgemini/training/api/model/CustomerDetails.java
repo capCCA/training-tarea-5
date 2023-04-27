@@ -2,31 +2,29 @@ package com.capgemini.training.api.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import javax.validation.constraints.NotBlank;
-import lombok.EqualsAndHashCode;
+import javax.validation.constraints.NotNull;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 @Schema(description = "CustomerDetails")
 @Getter
 @Setter
-@SuperBuilder
-@EqualsAndHashCode()
-@NoArgsConstructor
+@Builder
 @ToString(callSuper = true)
-public class CustomerDetails  {
+public class CustomerDetails {
 
   @Schema(title = "customerId", example = "1234567891", description = "Customer identifier.")
   @NotBlank
+  @NotNull
   private String customerId;
 
   @Schema(
       title = "documentType",
       example = "DNI",
       description = "Customer document type identifier.")
-  @NotBlank
+  @NotNull
   private DocumentType documentType;
 
   @Schema(

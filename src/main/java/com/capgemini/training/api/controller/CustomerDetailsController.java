@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import javax.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +42,7 @@ public class CustomerDetailsController {
       })
   @GetMapping(value = "/{customerId}")
   public ResponseEntity<CustomerDetails> getCustomerDetails(
-      @PathVariable("customerId") String customerId) {
+      @PathVariable("customerId") @NotEmpty String customerId) {
     return ResponseEntity.ok(customerDetailsService.getCustomerDetails(customerId));
   }
 }
