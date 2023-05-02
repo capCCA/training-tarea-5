@@ -3,9 +3,10 @@ package com.capgemini.training.api.controller;
 import com.capgemini.training.api.model.CustomerDetails;
 import com.capgemini.training.api.model.DocumentType;
 import com.capgemini.training.api.model.UpdateCustomerRequest;
+import com.capgemini.training.api.repository.model.CustomerEntity;
 import java.util.UUID;
 
-public class CustomerDetailsMother{
+public class CustomerDetailsMother {
 
   private String customerId;
   private DocumentType documentType;
@@ -17,14 +18,14 @@ public class CustomerDetailsMother{
   private String telephone;
 
   public CustomerDetailsMother() {
-    this.customerId= UUID.randomUUID().toString();
-    this.documentType=DocumentType.DNI;
-    this.documentNumber="235234123M";
-    this.name="Marck";
-    this.surName="paquito";
-    this.lastName="fernandez";
-    this.country="ES";
-    this.telephone="688774455";
+    this.customerId = UUID.randomUUID().toString();
+    this.documentType = DocumentType.DNI;
+    this.documentNumber = "235234123M";
+    this.name = "Marck";
+    this.surName = "paquito";
+    this.lastName = "fernandez";
+    this.country = "ES";
+    this.telephone = "688774455";
   }
 
   public static CustomerDetailsMother init() {
@@ -94,6 +95,19 @@ public class CustomerDetailsMother{
     customerDetails.setLastName(this.lastName);
     customerDetails.setCountry(this.country);
     customerDetails.setTelephone(this.telephone);
+    return customerDetails;
+  }
+
+  public CustomerEntity getCustomerEntity() {
+    CustomerEntity customerDetails = CustomerEntity.builder().build();
+    customerDetails.setCustomerId(this.customerId);
+    customerDetails.setDocumentType(this.documentType);
+    customerDetails.setDocumentNumber(this.documentNumber);
+    customerDetails.setSurname(this.surName);
+    customerDetails.setLastname(this.lastName);
+    customerDetails.setName(this.name);
+    customerDetails.setCountry(this.country);
+    customerDetails.setTelephone(Integer.valueOf(this.telephone));
     return customerDetails;
   }
 }

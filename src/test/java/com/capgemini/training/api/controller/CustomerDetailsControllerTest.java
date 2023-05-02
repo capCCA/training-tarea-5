@@ -22,7 +22,8 @@ public class CustomerDetailsControllerTest {
   // beforeEach? Os dejo que penseis ;)
   private CustomerDetailsController customerDetailsController;
 
-  @Mock private CustomerDetailsService customerDetailsService;
+  @Mock
+  private CustomerDetailsService customerDetailsService;
 
   @BeforeEach
   void setUp() {

@@ -1,6 +1,5 @@
 package com.capgemini.training.api.controller.integration;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -10,7 +9,6 @@ import com.capgemini.training.api.controller.CustomerDetailsController;
 import com.capgemini.training.api.controller.CustomerDetailsMother;
 import com.capgemini.training.api.model.CustomerDetails;
 import com.capgemini.training.api.service.CustomerDetailsService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -39,7 +37,8 @@ public class CustomerDetailsControllerIntegrationTest {
     // Realizamos la petición GET a la API:
     mockMvc.perform(get("/capgemini/training/customer/123"))
         .andExpect(status().isOk())
-        .andExpect(MockMvcResultMatchers.jsonPath("$.customerId").value(customerDetails.getCustomerId()))
+        .andExpect(
+            MockMvcResultMatchers.jsonPath("$.customerId").value(customerDetails.getCustomerId()))
         .andReturn();
 
   }

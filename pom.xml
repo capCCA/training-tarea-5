@@ -80,6 +80,16 @@
       <artifactId>springdoc-openapi-ui</artifactId>
       <version>${springdoc-openapi-ui.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>1.18.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>1.18.0</version>
+    </dependency>
   </dependencies>
   <dependencyManagement>
     <dependencies>
@@ -169,5 +179,6 @@
       </plugin>
     </plugins>
   </build>
+
 
 </project>

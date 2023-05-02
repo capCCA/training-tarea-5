@@ -18,9 +18,11 @@ import org.springframework.http.ResponseEntity;
 @ExtendWith(MockitoExtension.class)
 public class DeleteCustomerDetailsControllerTest {
 
-  @Mock private DeleteCustomerDetailsService deleteCustomerDetailsService;
+  @Mock
+  private DeleteCustomerDetailsService deleteCustomerDetailsService;
 
-  @InjectMocks private DeleteCustomerDetailsController controller;
+  @InjectMocks
+  private DeleteCustomerDetailsController controller;
 
   // TODO
   // https://stackoverflow.com/questions/36220889/whats-the-purpose-of-the-junit-5-nested-annotation

@@ -20,7 +20,8 @@ import org.springframework.http.ResponseEntity;
 @ExtendWith(MockitoExtension.class)
 public class NewCustomerDetailsControllerTest {
 
-  @Mock private NewCustomerDetailsService newCustomerDetailsService;
+  @Mock
+  private NewCustomerDetailsService newCustomerDetailsService;
   private NewCustomerDetailsController newCustomerDetailsController;
 
   @BeforeEach
@@ -48,7 +49,7 @@ public class NewCustomerDetailsControllerTest {
       ResponseEntity<CustomerDetails> responseEntity =
           newCustomerDetailsController.createNewCustomerDetails(customerDetails);
 
-      assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+      assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
       assertEquals(customerDetails, responseEntity.getBody());
     }
   }
