@@ -7,6 +7,7 @@ import com.capgemini.training.api.controller.CustomerDetailsMother;
 import com.capgemini.training.api.repository.model.BeneficiaryEntity;
 import com.capgemini.training.api.repository.model.CustomerEntity;
 import java.util.List;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,6 +20,11 @@ public class BeneficiaryRepositoryIntegrationTest extends BaseIntegrationTest {
 
   @Autowired
   private BeneficiaryRepository repository;
+
+  @BeforeEach
+  public void setup(){
+    repository.deleteAll();
+  }
 
   @Test
   public void shouldSaveBeneficiaryEntity() {
